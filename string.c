@@ -12,5 +12,5 @@ int my_strlen(char *s) {
 
 int main() {
   char *s = "Hello";
-  printf("TESTING STRLEN\nLength of %s: %d\n", s, my_strlen(s));
+  printf("TESTING STRLEN\nLength of %s:\n\tstrlen: %d\n\tmy_strlen: %d\n", s, strlen(s), my_strlen(s));
 }
