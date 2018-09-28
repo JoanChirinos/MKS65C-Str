@@ -43,6 +43,14 @@ int my_strcmp(char* s1, char* s2) {
   return 0;
 }
 
+char* my_strchr(char* s, char c) {
+  char* p = s;
+  for ( ; *p; *p++) {
+    if (*p == c) return p;
+  }
+  return '\0';
+}
+
 int main() {
   char *s = "Hello";
   printf("TESTING STRLEN\nLength of %s:\n\tstrlen: %lu\n\tmy_strlen: %d\n\n", s, strlen(s), my_strlen(s));
@@ -106,5 +114,17 @@ int main() {
   printf("my_strcmp(cmp_s3, cmp_s1) --> %d\n", my_strcmp(cmp_s3, cmp_s1));
   printf("my_strcmp(cmp_s1, cmp_s4) --> %d\n", my_strcmp(cmp_s1, cmp_s4));
   printf("my_strcmp(cmp_s2, cmp_s4) --> %d\n\n", my_strcmp(cmp_s2, cmp_s4));
+
+  char chr[] = "Hello this is David xD";
+  printf("TESTING STRCHR\n");
+  printf("char chr[] = \"Hello this is David xD\"\n");
+  printf("strchr(chr, 'e') --> %p\n", strchr(chr, 'e'));
+  printf("my_strchr(chr, 'e') --> %p\n", my_strchr(chr, 'e'));
+
+  printf("strchr(chr, 'i') --> %p\n", strchr(chr, 'i'));
+  printf("my_strchr(chr, 'i') --> %p\n", my_strchr(chr, 'i'));
+
+  printf("strchr(chr, 'z') --> %p\n", strchr(chr, 'z'));
+  printf("my_strchr(chr, 'z') --> %p\n", my_strchr(chr, 'z'));
 
 }
