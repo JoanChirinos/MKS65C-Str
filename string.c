@@ -37,9 +37,13 @@ int my_strcmp(char* s1, char* s2) {
   //while neither are null, check if they're !=. If so, return correct val.
   //else, increment both and check again
   for( ; *s1 && *s2; *s1++, *s2++) {
+    // printf("comparing: %c and %c\n", *s1, *s2);
     if (*s1 < *s2) return -1;
     else if (*s1 > *s2) return 1;
   }
+  //got to null terminator, so check again
+  if (*s1 < *s2) return -1;
+  else if (*s1 > *s2) return 1;
   return 0;
 }
 
@@ -47,7 +51,7 @@ char* my_strchr(char* s, char c) {
   for ( ; *s; *s++) {
     if (*s == c) return s;
   }
-  return '\0';
+  return (char *)('\0');
 }
 
 char* my_strstr(char* s1, char* s2) {
@@ -67,12 +71,30 @@ char* my_strstr(char* s1, char* s2) {
     //couldn't find p2 starting at p1, so increment p1
     p1++;
   }
-  return '\0';
+  return (char *)('\0');
 }
 
 int main() {
-  char *s = "Hello";
-  printf("TESTING STRLEN\nLength of %s:\n\tstrlen: %lu\n\tmy_strlen: %d\n\n", s, strlen(s), my_strlen(s));
+  char *len_1 = "Hello";
+  char *len_2 = "";
+  char len_3[] = "Hello";
+  char len_4[] = "";
+  printf("TESTING STRLEN\n");
+  printf("char *len_1 = \"%s\":\n", len_1);
+  printf("\tstrlen() --> %lu\n", strlen(len_1));
+  printf("\tmy_strlen --> %d\n\n", my_strlen(len_1));
+
+  printf("char *len_2 = \"%s\":\n", len_2);
+  printf("\tstrlen: %lu\n", strlen(len_2));
+  printf("\tmy_strlen: %d\n\n", my_strlen(len_2));
+
+  printf("char len_3[] = \"%s\":\n", len_3);
+  printf("\tstrlen: %lu\n", strlen(len_3));
+  printf("\tmy_strlen: %d\n\n", my_strlen(len_3));
+
+  printf("char len_4[] = \"%s\":\n", len_4);
+  printf("\tstrlen: %lu\n", strlen(len_4));
+  printf("\tmy_strlen: %d\n\n", my_strlen(len_4));
 
   char cpy_dst[256] = "hh";
   char cpy_src[] = "Copy this";
@@ -120,19 +142,21 @@ int main() {
   printf("char cmp_s1[] = \"Yo\";\n");
   printf("char cmp_s2[] = \"Yo\";\n");
   printf("char cmp_s3[] = \"yo?\";\n");
-  printf("char cmp_s3[] = \"yo\";\n");
+  printf("char cmp_s4[] = \"yo\";\n");
 
   printf("strcmp(cmp_s1, cmp_s2) --> %d\n", strcmp(cmp_s1, cmp_s2));
   printf("strcmp(cmp_s1, cmp_s3) --> %d\n", strcmp(cmp_s1, cmp_s3));
   printf("strcmp(cmp_s3, cmp_s1) --> %d\n", strcmp(cmp_s3, cmp_s1));
   printf("strcmp(cmp_s1, cmp_s4) --> %d\n", strcmp(cmp_s1, cmp_s4));
   printf("strcmp(cmp_s2, cmp_s4) --> %d\n\n", strcmp(cmp_s2, cmp_s4));
+  printf("strcmp(cmp_s3, cmp_s4) --> %d\n\n", strcmp(cmp_s3, cmp_s4));
 
   printf("my_strcmp(cmp_s1, cmp_s2) --> %d\n", my_strcmp(cmp_s1, cmp_s2));
   printf("my_strcmp(cmp_s1, cmp_s3) --> %d\n", my_strcmp(cmp_s1, cmp_s3));
   printf("my_strcmp(cmp_s3, cmp_s1) --> %d\n", my_strcmp(cmp_s3, cmp_s1));
   printf("my_strcmp(cmp_s1, cmp_s4) --> %d\n", my_strcmp(cmp_s1, cmp_s4));
-  printf("my_strcmp(cmp_s2, cmp_s4) --> %d\n\n", my_strcmp(cmp_s2, cmp_s4));
+  printf("my_strcmp(cmp_s2, cmp_s4) --> %d\n", my_strcmp(cmp_s2, cmp_s4));
+  printf("my_strcmp(cmp_s3, cmp_s4) --> %d\n\n", my_strcmp(cmp_s3, cmp_s4));
 
   char chr_chr[] = "Hello this is David xD";
   printf("TESTING STRCHR\n");
