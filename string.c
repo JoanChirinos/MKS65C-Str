@@ -34,10 +34,8 @@ char* my_strncat(char* dst, char* src, int n) {
 }
 
 int my_strcmp(char* s1, char* s2) {
-  // while (*s1 && *s2) {
-  //   *s1++;
-  //   *s2++;
-  // }
+  //while neither are null, check if they're !=. If so, return correct val.
+  //else, increment both and check again
   for( ; *s1 && *s2; *s1++, *s2++) {
     if (*s1 < *s2) return -1;
     else if (*s1 > *s2) return 1;
