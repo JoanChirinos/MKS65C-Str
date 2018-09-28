@@ -44,9 +44,28 @@ int my_strcmp(char* s1, char* s2) {
 }
 
 char* my_strchr(char* s, char c) {
-  char* p = s;
-  for ( ; *p; *p++) {
-    if (*p == c) return p;
+  for ( ; *s; *s++) {
+    if (*s == c) return s;
+  }
+  return '\0';
+}
+
+char* my_strstr(char* s1, char* s2) {
+  char* p1 = s1;
+  while (p1 < s1 + my_strlen(p1) - my_strlen(s2)) {
+    //reset p2
+    char* p2 = s2;
+    int ctr = my_strlen(s2);
+    int found = 1;
+    for ( ; ctr > 0; ctr--) {
+      if (*p1 != *p2) {
+        found = 0;
+        break;
+      }
+    }
+    if (found) return p1;
+    //couldn't find p2 starting at p1, so increment p1
+    p1++;
   }
   return '\0';
 }
@@ -115,16 +134,28 @@ int main() {
   printf("my_strcmp(cmp_s1, cmp_s4) --> %d\n", my_strcmp(cmp_s1, cmp_s4));
   printf("my_strcmp(cmp_s2, cmp_s4) --> %d\n\n", my_strcmp(cmp_s2, cmp_s4));
 
-  char chr[] = "Hello this is David xD";
+  char chr_chr[] = "Hello this is David xD";
   printf("TESTING STRCHR\n");
   printf("char chr[] = \"Hello this is David xD\"\n");
-  printf("strchr(chr, 'e') --> %p\n", strchr(chr, 'e'));
-  printf("my_strchr(chr, 'e') --> %p\n", my_strchr(chr, 'e'));
+  printf("strchr(chr, 'e') --> %p\n", strchr(chr_chr, 'e'));
+  printf("my_strchr(chr, 'e') --> %p\n", my_strchr(chr_chr, 'e'));
 
-  printf("strchr(chr, 'i') --> %p\n", strchr(chr, 'i'));
-  printf("my_strchr(chr, 'i') --> %p\n", my_strchr(chr, 'i'));
+  printf("strchr(chr, 'i') --> %p\n", strchr(chr_chr, 'i'));
+  printf("my_strchr(chr, 'i') --> %p\n", my_strchr(chr_chr, 'i'));
 
-  printf("strchr(chr, 'z') --> %p\n", strchr(chr, 'z'));
-  printf("my_strchr(chr, 'z') --> %p\n", my_strchr(chr, 'z'));
+  printf("strchr(chr, 'z') --> %p\n", strchr(chr_chr, 'z'));
+  printf("my_strchr(chr, 'z') --> %p\n\n", my_strchr(chr_chr, 'z'));
+
+  char str_chr[] = "Hello this is David xD";
+  printf("TESTING STRSTR\n");
+  printf("char chr[] = \"Hello this is David xD\"\n");
+  printf("strstr(str_chr, \"Hello\") --> %p\n", strstr(str_chr, "Hello"));
+  printf("my_strstr(str_chr, \"Hello\") --> %p\n", strstr(str_chr, "Hello"));
+
+  printf("strstr(str_chr, \"xD\") --> %p\n", strstr(str_chr, "xD"));
+  printf("my_strstr(str_chr, \"xD\") --> %p\n", strstr(str_chr, "xD"));
+
+  printf("strstr(str_chr, \"Adios\") --> %p\n", strstr(str_chr, "Adios"));
+  printf("my_strstr(str_chr, \"Adios\") --> %p\n", strstr(str_chr, "Adios"));
 
 }
