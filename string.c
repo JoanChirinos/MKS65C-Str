@@ -71,7 +71,7 @@ char* my_strstr(char* s1, char* s2) {
     //couldn't find p2 starting at p1, so increment p1
     p1++;
   }
-  return (char *)('\0');
+  return '\0';
 }
 
 int main() {
