@@ -89,8 +89,8 @@ int main() {
   char my_ncpy_src[] = "Copy this please wait never mind dont";
   printf("TESTING STRNCPY\n");
   printf("To copy: %s\n", ncpy_src);
-  printf("strncopy(ncpy_dst, ncpy_src) --> %s\n", strncpy(ncpy_dst, ncpy_src, 9));
-  printf("my_strncpy(ncpy_dst, ncpy_src) --> %s\n\n", my_strncpy(my_ncpy_dst, my_ncpy_src, 9));
+  printf("strncopy(ncpy_dst, ncpy_src, 9) --> %s\n", strncpy(ncpy_dst, ncpy_src, 9));
+  printf("my_strncpy(ncpy_dst, ncpy_src, 9) --> %s\n\n", my_strncpy(my_ncpy_dst, my_ncpy_src, 9));
 
   char cat_dst[256] = "Hello";
   char cat_src[] = " world!";
