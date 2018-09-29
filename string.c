@@ -149,7 +149,7 @@ int main() {
   printf("strcmp(cmp_s1, cmp_s3) --> %d\n", strcmp(cmp_s1, cmp_s3));
   printf("strcmp(cmp_s3, cmp_s1) --> %d\n", strcmp(cmp_s3, cmp_s1));
   printf("strcmp(cmp_s1, cmp_s4) --> %d\n", strcmp(cmp_s1, cmp_s4));
-  printf("strcmp(cmp_s2, cmp_s4) --> %d\n\n", strcmp(cmp_s2, cmp_s4));
+  printf("strcmp(cmp_s2, cmp_s4) --> %d\n", strcmp(cmp_s2, cmp_s4));
   printf("strcmp(cmp_s3, cmp_s4) --> %d\n\n", strcmp(cmp_s3, cmp_s4));
 
   printf("my_strcmp(cmp_s1, cmp_s2) --> %d\n", my_strcmp(cmp_s1, cmp_s2));
