@@ -82,20 +82,20 @@ int main() {
   char len_4[] = "";
   printf("TESTING STRLEN\n");
   printf("char *len_1 = \"%s\":\n", len_1);
-  printf("\tstrlen() --> %lu\n", strlen(len_1));
-  printf("\tmy_strlen --> %d\n\n", my_strlen(len_1));
+  printf("\tstrlen(len_1) --> %lu\n", strlen(len_1));
+  printf("\tmy_strlen(len_1) --> %d\n\n", my_strlen(len_1));
 
   printf("char *len_2 = \"%s\":\n", len_2);
-  printf("\tstrlen: %lu\n", strlen(len_2));
-  printf("\tmy_strlen: %d\n\n", my_strlen(len_2));
+  printf("\tstrlen(len_2) --> %lu\n", strlen(len_2));
+  printf("\tmy_strlen(len_2) --> %d\n\n", my_strlen(len_2));
 
   printf("char len_3[] = \"%s\":\n", len_3);
-  printf("\tstrlen: %lu\n", strlen(len_3));
-  printf("\tmy_strlen: %d\n\n", my_strlen(len_3));
+  printf("\tstrlen(len_3) --> %lu\n", strlen(len_3));
+  printf("\tmy_strlen(len_3) --> %d\n\n", my_strlen(len_3));
 
   printf("char len_4[] = \"%s\":\n", len_4);
-  printf("\tstrlen: %lu\n", strlen(len_4));
-  printf("\tmy_strlen: %d\n\n", my_strlen(len_4));
+  printf("\tstrlen(len_4) --> %lu\n", strlen(len_4));
+  printf("\tmy_strlen(len_4) --> %d\n\n", my_strlen(len_4));
 
   char cpy_dst[256] = "hh";
   char cpy_src[] = "Copy this";
