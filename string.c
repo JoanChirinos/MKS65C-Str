@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include "string.h"
 
 int my_strlen(char *str) {
   char* s; //inst char pointer
